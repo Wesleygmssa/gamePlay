@@ -1,21 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { Text, TextInput, View } from "react-native";
+import { styles } from "./styles";
 
-export  function Signin() {
+export function Signin() {
   return (
     <View style={styles.container}>
       <Text>Hello World</Text>
       <StatusBar style="auto" />
+      <TextInput style={styles.input} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
