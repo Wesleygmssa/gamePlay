@@ -15,7 +15,7 @@ export function Signin() {
       <Image source={Illustration} style={styles.image} resizeMode="stretch" />
       <View style={styles.content}>
         <Text style={styles.title}>
-          Organize {`\n`}suas jogatinhas{`\n`}facilmente
+          Organize {`\n`}suas jogatinas{`\n`}facilmente
         </Text>
 
         <Text style={styles.subtitle}>
