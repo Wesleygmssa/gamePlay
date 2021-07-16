@@ -1,27 +1,22 @@
 import React from "react";
 import { RectButton, RectButtonProps } from "react-native-gesture-handler";
-import {
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import { styles } from "./styles";
-import DiscordImg from "../../assets/discord.png";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { theme } from "../../global/styles/theme";
 
-type Props = RectButtonProps & {
-  title: string;
-};
+//Passing the type directly
+type Props = RectButtonProps;
 
-export function ButtonIcon({ title, ...rest }: Props) {
+export function CategorySelect({ ...rest }: Props) {
   return (
-    <RectButton style={styles.container} {...rest}>
-      <View style={styles.iconWrapper}>
-        <Image source={DiscordImg} style={styles.icon} />
-      </View>
-
-      <Text style={styles.title}>{title}</Text>
-    </RectButton>
+    <ScrollView
+      horizontal
+      style={styles.container}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ paddingRight: 40 }}
+    >
+      {}
+    </ScrollView>
   );
 }
