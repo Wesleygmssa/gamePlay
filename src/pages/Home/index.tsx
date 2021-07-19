@@ -12,9 +12,8 @@ export function Home() {
         <ButtonAdd />
       </View>
 
-      <View>
-        <CategorySelect />
-      </View>
+      {/* component CategorySelect and an map */}
+      <CategorySelect />
     </View>
   );
 }
