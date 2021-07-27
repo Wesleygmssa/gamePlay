@@ -10,8 +10,16 @@ import { ListDivider } from "../../components/ListDivider";
 import { Background } from "../../components/Background";
 
 import { styles } from "./styles";
+import { useNavigation } from "@react-navigation/native";
+
 export function Home() {
   const [category, setCategory] = useState("");
+
+  const navigation = useNavigation();
+
+  function handleppointmentDetails() {
+    navigation.navigate("AppointmentDetails");
+  }
 
   const appointments = [
     {
@@ -64,7 +72,9 @@ export function Home() {
         <FlatList
           data={appointments}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Appointment data={item} />}
+          renderItem={({ item }) => (
+            <Appointment data={item} onPress={handleppointmentDetails} />
+          )}
           ItemSeparatorComponent={() => <ListDivider />}
           style={styles.matches}
           showsVerticalScrollIndicator={false}
