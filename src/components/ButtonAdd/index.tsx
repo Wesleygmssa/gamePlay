@@ -10,12 +10,12 @@ type Props = RectButtonProps;
 
 export function ButtonAdd({ ...rest }: Props) {
   return (
-    <View style={styles.container}>
+    <RectButton style={styles.container} {...rest}>
       <MaterialCommunityIcons
         name="plus"
         color={theme.colors.heading}
         size={24}
       />
-    </View>
+    </RectButton>
   );
 }

@@ -21,6 +21,10 @@ export function Home() {
     navigation.navigate("AppointmentDetails");
   }
 
+  function handleAppointmentCreate() {
+    navigation.navigate("AppointmentCreate");
+  }
+
   const appointments = [
     {
       id: "1",
@@ -53,11 +57,12 @@ export function Home() {
   function handleCategorySelect(categoryId: string) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
+
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentCreate} />
       </View>
 
       {/* component CategorySelect and an map */}
