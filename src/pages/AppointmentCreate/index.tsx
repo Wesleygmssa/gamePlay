@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Feather } from "@expo/vector-icons";
 
 import { Header } from "../../components/Header";
+import { GuildIcon } from "../../components/GuildIcon";
 import { theme } from "../../global/styles/theme";
 import { CategorySelect } from "../../components/CategorySelect";
 
@@ -15,7 +16,14 @@ export function AppointmentCreate() {
   return (
     <Background>
       <Header title="Agendar partida" />
-      <Text style={styles.label}>Categoria</Text>
+      <Text
+        style={[
+          styles.label,
+          { marginLeft: 24, marginTop: 36, marginBottom: 18 },
+        ]}
+      >
+        Categoria
+      </Text>
 
       <CategorySelect
         hasCheckBox
@@ -26,7 +34,10 @@ export function AppointmentCreate() {
       <View style={styles.form}>
         <RectButton>
           <View style={styles.select}>
-            <View style={styles.image} />
+            {
+              // <View style={styles.image} />
+              <GuildIcon />
+            }
             <View style={styles.selectBody}>
               <Text style={styles.label}>Selecione um servidor</Text>
             </View>
