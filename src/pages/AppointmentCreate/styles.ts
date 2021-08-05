@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   label: {
+    marginLeft: 5,
     fontSize: 18,
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,
