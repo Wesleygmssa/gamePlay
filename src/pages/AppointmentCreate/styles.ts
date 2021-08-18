@@ -16,6 +16,11 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,
   },
+  caracteresLimit: {
+    fontFamily: theme.fonts.text400,
+    fontSize: 13,
+    color: theme.colors.highlight,
+  },
   form: {
     paddingHorizontal: 24,
     marginTop: 32,
