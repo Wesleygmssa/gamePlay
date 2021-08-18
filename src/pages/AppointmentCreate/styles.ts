@@ -63,4 +63,5 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text500,
     color: theme.colors.highlight,
   },
+  footer: {},
 });

@@ -92,7 +92,7 @@ export function AppointmentCreate() {
               autoCorrect={false}
             />
 
-            <View>
+            <View style={styles.footer}>
               <Button title="Agendar" />
             </View>
           </View>
