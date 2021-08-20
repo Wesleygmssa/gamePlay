@@ -10,6 +10,9 @@ import { theme } from "../../global/styles/theme";
 import { CategorySelect } from "../../components/CategorySelect";
 
 import { Background } from "../../components/Background";
+import { ModalView } from "../../components/ModalView";
+import { Guilds } from "../Guilds";
+
 import {
   Text,
   View,
@@ -98,6 +101,9 @@ export function AppointmentCreate() {
           </View>
         </Background>
       </ScrollView>
+      <ModalView>
+        <Guilds />
+      </ModalView>
     </KeyboardAvoidingView>
   );
 }
