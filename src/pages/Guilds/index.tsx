@@ -25,6 +25,12 @@ export function Guilds({ handleGuildSelect }: Props) {
       icon: null,
       owner: true,
     },
+    {
+      id: "2",
+      name: "Galera do Game",
+      icon: null,
+      owner: true,
+    },
   ];
   return (
     <View style={styles.container}>
