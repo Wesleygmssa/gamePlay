@@ -3,7 +3,7 @@
 </h3>
 
 <p align="center">
-   <img src="gameplay.png" >
+   <img src="gameplay.gif" >
 </p>
 
 ### :computer: How To Run
