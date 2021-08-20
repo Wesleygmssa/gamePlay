@@ -35,6 +35,7 @@ type Porps = TouchableOpacityProps & {
  */
 
 export function Guild({ data, ...rest }: Porps) {
+  // console.log(data);
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.7} {...rest}>
       <GuildIcon />

@@ -34,7 +34,6 @@ export function AppointmentCreate() {
   }
 
   /**
-   * function Não é permitido inserir mais de 3 (três) assuntos.
    * @param {*} GuildProps -{
    *  id: string;
       name: string;

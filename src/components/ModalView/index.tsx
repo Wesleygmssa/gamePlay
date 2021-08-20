@@ -9,7 +9,7 @@ type Props = ModalProps & {
 
 export function ModalView({ children, ...rest }: Props) {
   return (
-    <Modal transparent animationType="slide">
+    <Modal transparent animationType="slide" {...rest}>
       <View style={styles.overlay}>
         <View style={styles.container}>
           <Background>
