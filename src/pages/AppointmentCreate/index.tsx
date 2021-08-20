@@ -22,9 +22,31 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import { RectButton } from "react-native-gesture-handler";
+import { GuildProps } from "../../components/Appointment";
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState("");
+  const [openGuildsModa, setOpenGuidsModal] = useState(false);
+  const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
+
+  function handleOpenGuilds() {
+    setOpenGuidsModal(true);
+  }
+
+  /**
+   * function Não é permitido inserir mais de 3 (três) assuntos.
+   * @param {*} GuildProps -{
+   *  id: string;
+      name: string;
+      icon: null;
+      owner: boolean;
+   * }
+   */
+
+  function handleGuildSelect(guidSelect: GuildProps) {
+    setGuild(guidSelect);
+    setOpenGuidsModal(false);
+  }
   return (
     /* @KeyboradAvoidingView =>
      *  quando teclado aparecer a interface subir junto
@@ -52,7 +74,7 @@ export function AppointmentCreate() {
           />
 
           <View style={styles.form}>
-            <RectButton>
+            <RectButton onPress={handleOpenGuilds}>
               <View style={styles.select}>
                 {
                   // <View style={styles.image} />
@@ -101,8 +123,8 @@ export function AppointmentCreate() {
           </View>
         </Background>
       </ScrollView>
-      <ModalView>
-        <Guilds />
+      <ModalView visible={openGuildsModa}>
+        <Guilds handleGuildSelect={handleGuildSelect} />
       </ModalView>
     </KeyboardAvoidingView>
   );

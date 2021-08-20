@@ -1,6 +1,7 @@
 import React from "react";
 
 import { View, FlatList } from "react-native";
+import { GuildProps } from "../../components/Appointment";
 import { Guild } from "../../components/Guild";
 import { ListDivider } from "../../components/ListDivider";
 
@@ -11,7 +12,11 @@ import { styles } from "./styles";
  *  @param {*} data -
  */
 
-export function Guilds() {
+type Props = {
+  handleGuildSelect: (guild: GuildProps) => void;
+};
+
+export function Guilds({ handleGuildSelect }: Props) {
   //dados fake
   const guilds = [
     {
@@ -26,7 +31,9 @@ export function Guilds() {
       <FlatList
         data={guilds}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Guild data={item} />}
+        renderItem={({ item }) => (
+          <Guild data={item} onPress={() => handleGuildSelect(item)} />
+        )}
         showsVerticalScrollIndicator={false} // tirando barrinha da lateral
         ItemSeparatorComponent={() => <ListDivider />}
         style={styles.guilds}
