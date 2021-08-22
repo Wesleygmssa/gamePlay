@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
     marginLeft: 4,
     borderWidth: 1,
     borderColor: theme.colors.secondary50,
-    paddingLeft: 15,
+    paddingHorizontal: 15,
     paddingTop: 16,
+    textAlignVertical: "top",
   },
 });
