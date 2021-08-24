@@ -22,12 +22,12 @@ import { TextArea } from "../../components/TextArea";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
 import { Guilds } from "../Guilds";
-import { GuildProps } from "../../components/Appointment";
+import { GuildsPorps } from "../../components/Guild";
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState("");
   const [openGuildsModa, setOpenGuildsModal] = useState(false);
-  const [guild, setGuild] = useState<GuildProps>({} as GuildProps);
+  const [guild, setGuild] = useState<GuildsPorps>({} as GuildsPorps);
 
   function handleOpenGuilds() {
     setOpenGuildsModal(true);
@@ -37,9 +37,22 @@ export function AppointmentCreate() {
     setOpenGuildsModal(false);
   }
 
-  function handleGuildSelect(guildSelect: GuildProps) {
+  function handleGuildSelect(guildSelect: GuildsPorps) {
     setGuild(guildSelect);
     setOpenGuildsModal(false);
+  }
+
+  // function handleCategorySelect(categoryId: string) {
+  //   categoryId === category ? setCategory("") : setCategory(categoryId);
+  // }
+
+  /**
+   * atualização dos dados globais
+   * @param {*} categoryId inserindo o id da categoria
+   */
+
+  function handleCategorySelect(categoryId: string) {
+    setCategory(categoryId);
   }
 
   return (
@@ -62,7 +75,7 @@ export function AppointmentCreate() {
 
           <CategorySelect
             hasCheckBox
-            setCategory={setCategory}
+            setCategory={handleCategorySelect}
             categorySelected={category}
           />
 
