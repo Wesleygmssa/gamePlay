@@ -1,7 +1,7 @@
 import React from "react";
 
 import { View, FlatList } from "react-native";
-import { GuildProps } from "../../components/Appointment";
+import { GuildsPorps } from "../../components/Guild";
 import { Guild } from "../../components/Guild";
 import { ListDivider } from "../../components/ListDivider";
 
@@ -13,7 +13,7 @@ import { styles } from "./styles";
  */
 
 type Props = {
-  handleGuildSelect: (guild: GuildProps) => void;
+  handleGuildSelect: (guild: GuildsPorps) => void;
 };
 
 export function Guilds({ handleGuildSelect }: Props) {
