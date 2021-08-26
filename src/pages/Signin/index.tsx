@@ -11,7 +11,6 @@ import { useAuth } from "../../hooks/auth";
 
 export function Signin() {
   const { user } = useAuth();
-  console.log(user);
   const navigation = useNavigation();
   function handleSignIn() {
     navigation.navigate("Home");

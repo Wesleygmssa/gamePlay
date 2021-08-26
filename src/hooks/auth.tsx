@@ -23,14 +23,7 @@ const AuthContext = createContext({} as AuthContextData);
 // Criando função para pegar elementos que ficam por dento do componente
 // Para poder compartilhar a informações
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<User>({
-    id: "1",
-    username: "1",
-    firstName: "Wesley",
-    avatar: "guerra",
-    email: "guerra_ssa@hotmail.com",
-    token: "sdfsdfgsdf",
-  });
+  const [user, setUser] = useState<User>({});
   return (
     /* Estado atual do contexto */
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
