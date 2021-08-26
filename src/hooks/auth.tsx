@@ -17,13 +17,20 @@ type AuthProviderProps = {
   children: ReactNode;
 };
 //Criando contexto, estado inicial do contexto
-// Passando a tipagem com as informações
-export const AuthContext = createContext({} as AuthContextData);
+// Passando a tipagem com as informações AuthContextData
+const AuthContext = createContext({} as AuthContextData);
 
 // Criando função para pegar elementos que ficam por dento do componente
 // Para poder compartilhar a informações
-function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<User>({} as User);
+export function AuthProvider({ children }: AuthProviderProps) {
+  const [user, setUser] = useState<User>({
+    id: "1",
+    username: "1",
+    firstName: "Wesley",
+    avatar: "guerra",
+    email: "guerra_ssa@hotmail.com",
+    token: "sdfsdfgsdf",
+  });
   return (
     /* Estado atual do contexto */
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
@@ -31,14 +38,15 @@ function AuthProvider({ children }: AuthProviderProps) {
 }
 
 // Criando nosso proprio Hook
-// Padrão de de hook sempre começa com USE
+// Padrão  de hook sempre começa com USE
 // Refatorando codigo para deixar tudo centralizado
-// Pegando useContext e AuthContexto par criação do hook
-function useAuth() {
+// Pegando useContext e AuthContexto para criação do hook
+export function useAuth() {
   const context = useContext(AuthContext);
   return context;
 }
 // Exportando  AuthProvider que ficar responsável para passar a informções
 // global no aplicação
 // O useAuth para receber as informações desse hook
-export { AuthProvider, useAuth };
+
+/* Observação: o hook só deve ser importando dentro do compente para funcionar */

@@ -8,9 +8,10 @@ import { Background } from "../../components/Background";
 import { useAuth } from "../../hooks/auth";
 
 /* Recendo a informação global */
-const { user } = useAuth();
 
 export function Signin() {
+  const { user } = useAuth();
+  console.log(user);
   const navigation = useNavigation();
   function handleSignIn() {
     navigation.navigate("Home");
