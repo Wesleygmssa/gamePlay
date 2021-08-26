@@ -38,7 +38,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   // Necessário criar um try catch como estamos lidando com contexto externo
   // função tem que ser async pós esta fazendo uma consulta externa e aguardando uma responsta.
-  async function SignIn() {
+  async function signIn() {
     try {
       setLoading(true);
       const authUrl = `${api.defaults.baseURL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}F&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
