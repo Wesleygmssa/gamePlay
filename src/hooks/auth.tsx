@@ -45,7 +45,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
       console.log(authUrl);
 
       AuthSession.startAsync({ authUrl });
-    } catch (error) {}
+    } catch {
+      //Gerando um erro padrão
+      // gerando um erro pra quem chamou
+      throw new Error("Não foi possível autenticar");
+    }
   }
   return (
     /* Estado atual do contexto */

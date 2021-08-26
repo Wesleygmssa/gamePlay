@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TextInput, View, Image } from "react-native";
+import { Text, TextInput, View, Image, Alert } from "react-native";
 import { styles } from "./styles";
 import Illustration from "../../assets/illustration.png";
 import { ButtonIcon } from "../../components/Buttonicon";
@@ -10,10 +10,15 @@ import { useAuth } from "../../hooks/auth";
 /* Recendo a informação global */
 
 export function Signin() {
-  const { user } = useAuth();
-  const navigation = useNavigation();
-  function handleSignIn() {
-    navigation.navigate("Home");
+  // const navigation = useNavigation();
+  const { user, signIn } = useAuth();
+  async function handleSignIn() {
+    // navigation.navigate("Home");
+    try {
+      await signIn();
+    } catch (error) {
+      Alert.alert(error);
+    }
   }
   return (
     <Background>
