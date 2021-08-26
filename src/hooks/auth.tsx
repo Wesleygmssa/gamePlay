@@ -20,6 +20,7 @@ type User = {
 
 type AuthContextData = {
   user: User;
+  signIn: () => Promise<void>;
 };
 
 type AuthProviderProps = {
@@ -35,17 +36,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User>({} as User);
   const [loading, setLoading] = useState(false);
 
-  //Necessário criar um try catch como estamos lidando com contexto externo
-  function SignIn() {
+  // Necessário criar um try catch como estamos lidando com contexto externo
+  // função tem que ser async pós esta fazendo uma consulta externa e aguardando uma responsta.
+  async function SignIn() {
     try {
       setLoading(true);
       const authUrl = `${api.defaults.baseURL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}F&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+      console.log(authUrl);
+
       AuthSession.startAsync({ authUrl });
     } catch (error) {}
   }
   return (
     /* Estado atual do contexto */
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, signIn }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 
