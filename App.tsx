@@ -8,7 +8,7 @@ import {
 } from "@expo-google-fonts/rajdhani";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "react-native";
-import { AuthContext } from "./src/context/auth";
+import { AuthProvider } from "./src/hooks/auth";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,10 +29,11 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {/* Estado atual do contexto */}
-      <AuthContext.Provider value={{ name: "Wesley" }}>
+
+      {/* AuthProvider Reponsável de passar as informções global */}
+      <AuthProvider>
         <Routes />
-      </AuthContext.Provider>
+      </AuthProvider>
     </>
   );
 }

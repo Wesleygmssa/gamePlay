@@ -5,6 +5,10 @@ import Illustration from "../../assets/illustration.png";
 import { ButtonIcon } from "../../components/Buttonicon";
 import { useNavigation } from "@react-navigation/core";
 import { Background } from "../../components/Background";
+import { useAuth } from "../../hooks/auth";
+
+/* Recendo a informação global */
+const { user } = useAuth();
 
 export function Signin() {
   const navigation = useNavigation();
