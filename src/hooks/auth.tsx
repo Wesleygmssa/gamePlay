@@ -1,5 +1,13 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import * as AuthSession from "expo-auth-session";
+import {
+  CDN_IMAGE,
+  CLIENT_ID,
+  REDIRECT_URI,
+  RESPONSE_TYPE,
+  SCOPE,
+} from "../configs";
+import { api } from "../services/api";
 
 type User = {
   id: string;
@@ -31,8 +39,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   function SignIn() {
     try {
       setLoading(true);
-      const authUrl =
-        "https://discord.com/api/oauth2/authorize?client_id=880439018783924264&redirect_uri=https%3A%2F%2Fauth.expo.io%2Fgameplay%2F&response_type=code&scope=identify%20connections%20email%20guilds";
+      const authUrl = `${api.defaults.baseURL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}F&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
       AuthSession.startAsync({ authUrl });
     } catch (error) {}
   }
