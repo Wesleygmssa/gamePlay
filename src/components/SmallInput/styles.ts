@@ -12,5 +12,7 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     marginLeft: 4,
     textAlign: "center",
+    borderWidth: 1,
+    borderColor: theme.colors.secondary50,
   },
 });
