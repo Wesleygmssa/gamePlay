@@ -7,8 +7,12 @@ import {
   Rajdhani_700Bold,
 } from "@expo-google-fonts/rajdhani";
 import AppLoading from "expo-app-loading";
-import { StatusBar } from "react-native";
+import { StatusBar, LogBox } from "react-native";
 import { AuthProvider } from "./src/hooks/auth";
+
+LogBox.ignoreLogs([
+  "You are not currently signed in to Expo on your development machine",
+]);
 
 export default function App() {
   const [fontsLoaded] = useFonts({
