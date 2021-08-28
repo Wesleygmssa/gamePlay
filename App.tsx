@@ -10,6 +10,7 @@ import AppLoading from "expo-app-loading";
 import { StatusBar, LogBox } from "react-native";
 import { AuthProvider } from "./src/hooks/auth";
 
+//Desabilitando notificação
 LogBox.ignoreLogs([
   "You are not currently signed in to Expo on your development machine",
 ]);
