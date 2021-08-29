@@ -30,7 +30,8 @@ type AuthProviderProps = {
 
 type AuthorizationResponse = AuthSession.AuthSessionResult & {
   params: {
-    access_token: string;
+    access_token?: string;
+    error?: string;
   };
 };
 //Criando contexto, estado inicial do contexto
@@ -54,7 +55,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
         authUrl,
       })) as AuthorizationResponse;
 
-      if (type === "success") {
+      //Tratativa
+      if (type === "success" && !params.error) {
         api.defaults.headers.authorization = `Bearer ${params.access_token}`;
 
         const userInfo = await api.get("/users/@me");
