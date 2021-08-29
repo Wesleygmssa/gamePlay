@@ -18,7 +18,7 @@ export function AuthRoutes() {
         cardStyle: { backgroundColor: theme.colors.secondary100 },
       }}
     >
-      <Screen name="Signin" component={Signin} />
+      {/* <Screen name="Signin" component={Signin} /> */}
       <Screen name="Home" component={Home} />
       <Screen name="AppointmentDetails" component={AppointmentDetails} />
       <Screen name="AppointmentCreate" component={AppointmentCreate} />
