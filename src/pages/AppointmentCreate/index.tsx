@@ -25,10 +25,8 @@ import { Button } from "../../components/Button";
 import { Guilds } from "../Guilds";
 import { GuildsPorps } from "../../components/Guild";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {
-  COLLECTION_APPOINTMENTS,
-  COLLECTION_USERS,
-} from "../../configs/database";
+import { COLLECTION_APPOINTMENTS } from "../../configs/database";
+import { useNavigation } from "@react-navigation/core";
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState("");
@@ -40,6 +38,8 @@ export function AppointmentCreate() {
   const [hour, setHour] = useState("");
   const [minute, setMinute] = useState("");
   const [description, setDescription] = useState("");
+
+  const navigation = useNavigation();
 
   function handleOpenGuilds() {
     setOpenGuildsModal(true);
@@ -77,6 +77,14 @@ export function AppointmentCreate() {
     };
 
     const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
+    const appointments = storage ? JSON.parse(storage) : [];
+
+    await AsyncStorage.setItem(
+      COLLECTION_APPOINTMENTS,
+      JSON.stringify([...appointments, newAppointment])
+    );
+
+    navigation.navigate("Home");
   }
 
   return (
@@ -163,7 +171,7 @@ export function AppointmentCreate() {
             />
 
             <View style={styles.footer}>
-              <Button title="Agendar" />
+              <Button title="Agendar" onPress={handleSave} />
             </View>
           </View>
         </ScrollView>

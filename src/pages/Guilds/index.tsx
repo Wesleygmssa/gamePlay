@@ -34,21 +34,6 @@ export function Guilds({ handleGuildSelect }: Props) {
     fetchGuild();
   }, []);
 
-  // //dados fake
-  // const guilds = [
-  //   {
-  //     id: "1",
-  //     name: "Lendários",
-  //     icon: null,
-  //     owner: true,
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Galera do Game",
-  //     icon: null,
-  //     owner: true,
-  //   },
-  // ];
   return (
     <View style={styles.container}>
       {loading ? (
