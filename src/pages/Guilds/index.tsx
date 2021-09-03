@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 import { View, FlatList } from "react-native";
@@ -6,6 +7,7 @@ import { GuildsPorps } from "../../components/Guild";
 import { Guild } from "../../components/Guild";
 import { ListDivider } from "../../components/ListDivider";
 import { Load } from "../../components/Load";
+import { api } from "../../services/api";
 
 import { styles } from "./styles";
 
@@ -21,6 +23,16 @@ type Props = {
 export function Guilds({ handleGuildSelect }: Props) {
   const [guilds, setGuilds] = useState<GuildsPorps[]>([]);
   const [loading, setLoading] = useState(true);
+
+  async function fetchGuild() {
+    const response = await api.get("/users/@me/guilds");
+    setGuilds(response.data);
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchGuild();
+  }, []);
 
   // //dados fake
   // const guilds = [
